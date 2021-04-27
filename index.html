@@ -6,11 +6,7 @@
   	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-	<!--Injeta WEB3-->
-	<script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
-	<!--Função javascript-->
-  	<script type="text/javascript" src="js/abi.js"></script>
-  	<script type="text/javascript" src="js/script.js"></script>
+	
 </head>
 <body>
 	<!--Tela de Cadastro-->
@@ -28,12 +24,12 @@
     				<input type="text" class="form-control" id="crm" maxlength="10">
 
 					<label for="cpf">CPF:</label>
-    				<input type="number" class="form-control" id="cpf" maxlength="13">
+    				<input type="text" class="form-control" id="cpf" maxlength="13">
 
 					<label for="prescricao">Prescrição médica:</label>
     				<input type="text" class="form-control" id="prescricao">
   				</div>
-   				<input type="button" class="btn btn-default" id="bcadastrar" value="Cadastrar" onclick = "javascript: newReceita();">
+   				<input type="button" class="btn btn-default" id="bcadastrar" value="Cadastrar" onclick = "javascript: DApp;">
    				<input type="reset" class="btn btn-default" value="Limpar";">
 			</form> 
 		</dir>
@@ -56,6 +52,12 @@
           </tbody>
         </table>
       </div>
+
+	  <!--Injeta WEB3-->
+	<script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+	<!--Função javascript-->
+  	<script type="text/javascript" src="js/abi.js"></script>
+  	<script type="text/javascript" src="js/script.js"></script>
 	
 </body>
 </html>
