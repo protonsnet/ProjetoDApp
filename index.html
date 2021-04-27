@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html lang="pt-br">
 <html>
 <head>
 	<title>Receituario</title>
@@ -15,21 +16,22 @@
 			<h1 class="panel-title">Receituario</h1>
 		</dir>
 		<div class="panel-body">
-		 	<form>
+		 	<form> 
   				<div class="form-group">
     				<label for="receiver">Contrato Paciente:</label>
     				<input type="text" class="form-control" id="receiver">
 
-					<label for="crm">CRM Médico:</label>
+					<label for="crm">CRM Medico:</label>
     				<input type="text" class="form-control" id="crm" maxlength="10">
 
 					<label for="cpf">CPF:</label>
     				<input type="text" class="form-control" id="cpf" maxlength="13">
 
-					<label for="prescricao">Prescrição médica:</label>
+					<label for="prescricao">Prescricao medica:</label>
     				<input type="text" class="form-control" id="prescricao">
   				</div>
-   				<input type="button" class="btn btn-default" id="bcadastrar" value="Cadastrar" onclick = "javascript: DApp;">
+				
+				<input type="button" class="btn btn-default" id="bcadastrar" value="Criar Receituario" onclick = "javascript: newReceita();">
    				<input type="reset" class="btn btn-default" value="Limpar";">
 			</form> 
 		</dir>
@@ -45,7 +47,7 @@
             <tr>
                 <th class="small text-center" scope="col">Contrato</th>
                 <th class="small text-center" scope="col">CPF</th>
-                <th class="small text-center" scope="col">Transação</th>
+                <th class="small text-center" scope="col">Transacao</th>
               </tr>
           </thead>
           <tbody id="events" class="small text-center">

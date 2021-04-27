@@ -1,5 +1,5 @@
 //Contrato
-var contratAddress = "0x265C2360F0362eBa0E65652182A4a193FCd53565";
+var contratAddress = "0x29C34A384cea1F9fB9727d88edD05a126814f58e";
 
 //Inicia o DApp
 document.addEventListener("DOMContentLoaded", onDocumentLoad);
@@ -67,15 +67,15 @@ function newReceita(){ //function newReceita(address receiver, string memory crm
     let crm        = document.getElementById("crm").value;
     let cpf        = document.getElementById("cpf").value;
     let prescricao = document.getElementById("prescricao").value;
-    alert("Adicionando receituario");
-    return DApp.contracts.Receituario.methods.newReceita(receiver, crm, cpf, prescricao).send({from: DApp.account}).then(atualizaInterface);;
+    //alert("Adicionando receituario");
+    return DApp.contracts.Receituario.methods.newReceita(receiver, crm, cpf, prescricao).send({from: DApp.account});
 }
 
 function inicializaInterface() {
     document.getElementById("bcadastrar").onclick = newReceita;
     //atualizaInterface();
     DApp.contracts.Receituario.getPastEvents("ReceitasEmitidas", { fromBlock: 0, toBlock: "latest" }).then((result) => verEventos(result));  
-    DApp.contracts.Receituario.events.RifaComprada((error, event) => verEventos([event]));  
+    DApp.contracts.Receituario.events.ReceitasEmitidas((error, event) => verEventos([event]));  
 }
 
 function verEventos(eventos) {
