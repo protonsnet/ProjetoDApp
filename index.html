@@ -1,65 +1,64 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<html>
-<head>
-	<title>Receituario</title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<head>
+		<title>Receituario</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-	
-</head>
-<body>
-	<!--Tela de Cadastro-->
-	<div class = "panel panel-info">
-		<dir class="panel-heading" id="receituario">
-			<h1 class="panel-title">Receituario</h1>
-		</dir>
-		<div class="panel-body">
-		 	<form> 
-  				<div class="form-group">
-    				<label for="receiver">Contrato Paciente:</label>
-    				<input type="text" class="form-control" id="receiver">
+		
+	</head>
+	<body>
+		<!--Tela de Cadastro-->
+		<div class = "panel panel-info">
+			<dir class="panel-heading">
+				<h1 class="panel-title">Receituario</h1>
+			</dir>
+			<div class="panel-body">
+				<form> 
+					<div class="form-group">
+						<label for="receiver">Contrato Paciente:</label>
+						<input type="text" class="form-control" id="receiver">
 
-					<label for="crm">CRM Medico:</label>
-    				<input type="text" class="form-control" id="crm" maxlength="10">
+						<label for="crm">CRM Medico:</label>
+						<input type="text" class="form-control" id="crm" maxlength="10">
 
-					<label for="cpf">CPF:</label>
-    				<input type="text" class="form-control" id="cpf" maxlength="13">
+						<label for="cpf">CPF:</label>
+						<input type="text" class="form-control" id="cpf" maxlength="13">
 
-					<label for="prescricao">Prescricao medica:</label>
-    				<input type="text" class="form-control" id="prescricao">
-  				</div>
-				
-				<input type="button" class="btn btn-default" id="bcadastrar" value="Criar Receituario" onclick = "javascript: newReceita();">
-   				<input type="reset" class="btn btn-default" value="Limpar";">
-			</form> 
-		</dir>
-	</div>
+						<label for="prescricao">Prescricao medica:</label>
+						<input type="text" class="form-control" id="prescricao">
+					</div>
+					
+					<input type="button" class="btn btn-default" id="bcadastrar" value="Criar Receituario" onclick = "javascript: newReceita();">
+					<input type="button" class="btn btn-default" id="bver" value="Ver ultimo contrato" onclick = "javascript: alerta();">
+					<input type="reset" class="btn btn-default" value="Limpar";">
+				</form> 
+			</dir>
+		</div>
 
-	<br>
-      <div class="row">
-        <table class="table">
-          <thead>
-            <tr>
-              <th style="text-align: center;" scope="col" colspan="3">Receituario</th>
-            </tr>
-            <tr>
-                <th class="small text-center" scope="col">Contrato</th>
-                <th class="small text-center" scope="col">CPF</th>
-                <th class="small text-center" scope="col">Transacao</th>
-              </tr>
-          </thead>
-          <tbody id="events" class="small text-center">
-          </tbody>
-        </table>
-      </div>
+		<br>
+		<div class="row">
+			<table class="table">
+			<thead>
+				<tr>
+				<th style="text-align: center;" scope="col" colspan="3">Receituario</th>
+				</tr>
+				<tr>
+					<th class="small text-center" scope="col">Contrato</th>
+					<th class="small text-center" scope="col">Transacao</th>
+				</tr>
+			</thead>
+			<tbody id="events" class="small text-center">
+			</tbody>
+			</table>
+		</div>
 
-	  <!--Injeta WEB3-->
-	<script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
-	<!--Função javascript-->
-  	<script type="text/javascript" src="js/abi.js"></script>
-  	<script type="text/javascript" src="js/script.js"></script>
-	
-</body>
+		<!--Injeta WEB3-->
+		<script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+		<!--Função javascript-->
+		<script type="text/javascript" src="js/abi.js"></script>
+		<script type="text/javascript" src="js/script.js"></script>
+		
+	</body>
 </html>

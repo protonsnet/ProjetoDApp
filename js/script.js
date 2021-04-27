@@ -61,6 +61,13 @@ function viewReceita() {//function viewReceita(address receiver) public view ret
     return DApp.contracts.Receituario.method.viewReceita().call({form: DApp.account});
 }
 
+//Função alerta
+function alerta(){
+    viewReceita().then((result) => {
+        alert("Contrato: "+result);
+      });
+}
+
 //Função preencher Receita
 function newReceita(){ //function newReceita(address receiver, string memory crm, string memory cpf, string memory prescricao) public payable
     let receiver   = document.getElementById("receiver").value;
@@ -68,11 +75,12 @@ function newReceita(){ //function newReceita(address receiver, string memory crm
     let cpf        = document.getElementById("cpf").value;
     let prescricao = document.getElementById("prescricao").value;
     //alert("Adicionando receituario");
-    return DApp.contracts.Receituario.methods.newReceita(receiver, crm, cpf, prescricao).send({from: DApp.account});
+    return DApp.contracts.Receituario.methods.newReceita(receiver, crm, cpf, prescricao).send({value: receiver, value: crm, value: cpf, value: prescricao}).then(verEventos);
 }
 
 function inicializaInterface() {
     document.getElementById("bcadastrar").onclick = newReceita;
+    document.getElementById("bver").onclick = viewReceita;
     //atualizaInterface();
     DApp.contracts.Receituario.getPastEvents("ReceitasEmitidas", { fromBlock: 0, toBlock: "latest" }).then((result) => verEventos(result));  
     DApp.contracts.Receituario.events.ReceitasEmitidas((error, event) => verEventos([event]));  
@@ -84,13 +92,10 @@ function verEventos(eventos) {
       let tr = document.createElement("tr");
       let td1 = document.createElement("td");
       td1.innerHTML = "<a href='https://ropsten.etherscan.io/address/"+ evento["returnValues"]["receiver"] +"'>" + evento["returnValues"]["receiver"] + "</a>";
-      let td2 = document.createElement("td");
-      td2.innerHTML = evento["returnValues"]["cpf"];
-      let td3 = document.createElement("td");  
-      td3.innerHTML = "<a href='https://ropsten.etherscan.io/tx/"+ evento["transactionHash"] +"'>" + evento["transactionHash"] + "</a>";
+      let td2 = document.createElement("td"); 
+      td2.innerHTML = "<a href='https://ropsten.etherscan.io/tx/"+ evento["transactionHash"] +"'>" + evento["transactionHash"] + "</a>";
       tr.appendChild(td1);
       tr.appendChild(td2);
-      tr.appendChild(td3);
       table.appendChild(tr);
     });
   }
